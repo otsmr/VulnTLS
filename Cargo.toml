@@ -1,0 +1,5 @@
+[workspace]
+members = [
+  "ecdsa_missing_checks",
+]
+
