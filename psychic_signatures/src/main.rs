@@ -41,7 +41,7 @@ fn main() {
         "--- Request --- \n{}\n---------------",
         String::from_utf8(buf[..n - 4].to_vec()).unwrap()
     );
-    let body = "You got it!";
+    let body = "Hello Michael Scott!\n Here is our Flag: flag_XXXXXXXXXXXXXXXXXXXXXX_";
     let data = format!(
         "\
 HTTP/1.1 200\r\n\

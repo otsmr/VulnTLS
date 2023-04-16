@@ -14,9 +14,9 @@ AnotherTLS repository.
 
 The vulnerabilities are marked with there difficulty (EASY, HARD, EXTREME).
 
-## ECDSA missing signature checks (EASY)
+## Psychic signatures (EASY)
 
-Run the [challenge](./ecdsa_missing_checks/README.md).
+Run the [challenge](./psychic_signatures/README.md).
 ```sh
-cargo run --bin ecdsa_missing_checks
+cargo run --bin psychic_signatures
 ```

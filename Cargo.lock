@@ -5,6 +5,13 @@ version = 3
 [[package]]
 name = "anothertls"
 version = "0.1.0"
+dependencies = [
+ "ibig",
+]
+
+[[package]]
+name = "anothertls"
+version = "0.1.0"
 source = "git+https://github.com/otsmr/anothertls.git?branch=vulntls#24c463ef83e823bbb48e4741655ceb39ec2e8523"
 dependencies = [
  "ibig",
@@ -20,7 +27,14 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 name = "ecdsa_missing_checks"
 version = "0.1.0"
 dependencies = [
- "anothertls",
+ "anothertls 0.1.0 (git+https://github.com/otsmr/anothertls.git?branch=vulntls)",
+]
+
+[[package]]
+name = "ecdsa_timing_attack"
+version = "0.1.0"
+dependencies = [
+ "anothertls 0.1.0",
 ]
 
 [[package]]

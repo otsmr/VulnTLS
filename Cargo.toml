@@ -1,5 +1,6 @@
 [workspace]
 members = [
   "ecdsa_missing_checks",
+  "ecdsa_timing_attack",
 ]
 
