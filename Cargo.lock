@@ -12,7 +12,7 @@ dependencies = [
 [[package]]
 name = "anothertls"
 version = "0.1.0"
-source = "git+https://github.com/otsmr/anothertls.git?branch=vulntls#24c463ef83e823bbb48e4741655ceb39ec2e8523"
+source = "git+https://github.com/otsmr/anothertls.git?branch=vulntls#8094143d9043ed1f562a45a9670f798af1304a91"
 dependencies = [
  "ibig",
 ]

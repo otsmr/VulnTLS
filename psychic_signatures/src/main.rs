@@ -3,12 +3,12 @@
  *
  */
 
-use anothertls::{TlsConfigBuilder, TlsListener};
+use anothertls::{ServerConfigBuilder, ServerConnection};
 use std::net::TcpListener;
 
 fn main() {
 
-    let config = TlsConfigBuilder::new()
+    let config = ServerConfigBuilder::new()
         .set_client_cert_custom_verify_fn(|cert| {
             let name = match cert.tbs_certificate.subject.get("commonName") {
                 Ok(e) => e,
@@ -26,17 +26,15 @@ fn main() {
     println!("Listening on 127.0.0.1:4000");
 
     let tcp = TcpListener::bind("127.0.0.1:4000").expect("Error binding to tcp socket.");
-    let listener = TlsListener::new(tcp, config);
+    let listener = ServerConnection::new(tcp, config);
 
     let (mut socket, _) = listener.accept().expect("Couldn't get client");
-
-    socket.do_handshake_block().expect("Error while handshake.");
 
     println!("New secure connection");
 
     let mut buf: [u8; 4096] = [0; 4096];
 
-    let n = socket.read(&mut buf).expect("Error reading from socket.");
+    let n = socket.tls_read(&mut buf).expect("Error reading from socket.");
     println!(
         "--- Request --- \n{}\n---------------",
         String::from_utf8(buf[..n - 4].to_vec()).unwrap()
@@ -55,6 +53,6 @@ Content-Length: {}\r\n\
     );
 
     socket
-        .write_all(data.as_bytes())
+        .tls_write(data.as_bytes())
         .expect("Error writing to socket.");
 }
