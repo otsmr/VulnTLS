@@ -17,9 +17,9 @@ fn main() {
             println!("User: {name}");
             name == "Michael Scott"
         })
-        .add_client_cert_ca("./ecdsa_missing_checks/src/ca.cert".to_string())
-        .add_cert_pem("./ecdsa_missing_checks/src/server.cert".to_string())
-        .add_privkey_pem("./ecdsa_missing_checks/src/server.key".to_string())
+        .add_client_cert_ca("./psychic_signatures/src/ca.cert".to_string())
+        .add_cert_pem("./psychic_signatures/src/server.cert".to_string())
+        .add_privkey_pem("./psychic_signatures/src/server.key".to_string())
         .build()
         .unwrap();
 

@@ -24,13 +24,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "ecdsa_missing_checks"
-version = "0.1.0"
-dependencies = [
- "anothertls 0.1.0 (git+https://github.com/otsmr/anothertls.git?branch=vulntls)",
-]
-
-[[package]]
 name = "ecdsa_timing_attack"
 version = "0.1.0"
 dependencies = [
@@ -45,6 +38,13 @@ checksum = "d1fcc7f316b2c079dde77564a1360639c1a956a23fa96122732e416cb10717bb"
 dependencies = [
  "cfg-if",
  "static_assertions",
+]
+
+[[package]]
+name = "psychic_signatures"
+version = "0.1.0"
+dependencies = [
+ "anothertls 0.1.0 (git+https://github.com/otsmr/anothertls.git?branch=vulntls)",
 ]
 
 [[package]]
