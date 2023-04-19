@@ -3,9 +3,7 @@ name = "ecdsa_timing_attack"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-# anothertls = { git = "https://github.com/otsmr/anothertls.git", branch = "vulntls" }
-anothertls = { path = "/Users/privat/Documents/projekte/AnotherTLS/main/anothertls" }
+anothertls = { git = "https://github.com/otsmr/anothertls.git", branch = "vulntls" }
 

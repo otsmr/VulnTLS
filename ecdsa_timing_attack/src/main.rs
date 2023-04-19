@@ -4,11 +4,12 @@
  */
 
 #![allow(unused_must_use)]
-use anothertls::{TlsConfigBuilder, TlsListener};
+use anothertls::{ServerConfigBuilder, ServerConnection};
 use std::net::TcpListener;
 
 fn main() {
-    let config = TlsConfigBuilder::new()
+    anothertls::log::init();
+    let config = ServerConfigBuilder::new()
         .add_cert_pem("./ecdsa_timing_attack/src/server.cert".to_string())
         .add_privkey_pem("./ecdsa_timing_attack/src/server.key".to_string())
         .build()
@@ -17,7 +18,7 @@ fn main() {
     println!("Listening on 127.0.0.1:4000");
 
     let tcp = TcpListener::bind("127.0.0.1:4000").expect("Error binding to tcp socket.");
-    let listener = TlsListener::new(tcp, config);
+    let listener = ServerConnection::new(tcp, config);
 
     loop {
 
@@ -26,11 +27,7 @@ fn main() {
             Err(_) => continue,
         };
 
-        if socket.do_handshake_block().is_err() {
-            continue;
-        };
-
-        socket.write_all(b"\
+        socket.tls_write(b"\
 HTTP/1.1 200\r\n\
 Server: VulnTLS/1.0\r\n\
 Content-Type: text/html; charset=utf-8\r\n\
