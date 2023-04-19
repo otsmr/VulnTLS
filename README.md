@@ -9,7 +9,6 @@ own [branch](https://github.com/otsmr/AnotherTLS/tree/vulntls) in the
 AnotherTLS repository.
 
 
-
 # Vulnerabilities
 
 The vulnerabilities are marked with there difficulty (EASY, HARD, EXTREME).
@@ -20,3 +19,11 @@ Run the [challenge](./psychic_signatures/README.md).
 ```sh
 cargo run --bin psychic_signatures
 ```
+
+## Timing issues (HARD)
+
+Run the [challenge](./timing_issues/README.md).
+```sh
+cargo run --bin timing_issues
+```
+

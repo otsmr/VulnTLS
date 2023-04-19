@@ -1,5 +1,5 @@
 [package]
-name = "ecdsa_timing_attack"
+name = "timing_issues"
 version = "0.1.0"
 edition = "2021"
 

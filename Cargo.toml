@@ -1,6 +1,6 @@
 [workspace]
 members = [
   "psychic_signatures",
-  "ecdsa_timing_attack",
+  "timing_issues",
 ]
 

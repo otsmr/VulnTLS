@@ -10,8 +10,8 @@ use std::net::TcpListener;
 fn main() {
     anothertls::log::init();
     let config = ServerConfigBuilder::new()
-        .add_cert_pem("./ecdsa_timing_attack/src/server.cert".to_string())
-        .add_privkey_pem("./ecdsa_timing_attack/src/server.key".to_string())
+        .add_cert_pem("./timing_issues/src/server.cert".to_string())
+        .add_privkey_pem("./timing_issues/src/server.key".to_string())
         .build()
         .unwrap();
 
