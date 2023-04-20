@@ -15,6 +15,7 @@ The vulnerabilities are marked with there difficulty (EASY, HARD, EXTREME).
 
 ## Psychic signatures (EASY)
 
+Bypass the client certificate authentication!
 Run the [challenge](./psychic_signatures/README.md).
 ```sh
 cargo run --bin psychic_signatures
@@ -22,8 +23,13 @@ cargo run --bin psychic_signatures
 
 ## Timing issues (HARD)
 
+Get the private key of the server!
 Run the [challenge](./timing_issues/README.md).
 ```sh
 cargo run --bin timing_issues
 ```
 
+## Triple_EC (EXTREME)
+
+Decrypt the captured connection!
+See [challenge](./triple_ec/README.md) for more.

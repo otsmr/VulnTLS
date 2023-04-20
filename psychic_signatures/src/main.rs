@@ -3,11 +3,11 @@
  *
  */
 
+#![allow(unused_must_use)]
 use anothertls::{ServerConfigBuilder, ServerConnection};
 use std::net::TcpListener;
 
 fn main() {
-
     let config = ServerConfigBuilder::new()
         .set_client_cert_custom_verify_fn(|cert| {
             let name = match cert.tbs_certificate.subject.get("commonName") {
@@ -28,31 +28,25 @@ fn main() {
     let tcp = TcpListener::bind("127.0.0.1:4000").expect("Error binding to tcp socket.");
     let listener = ServerConnection::new(tcp, config);
 
-    let (mut socket, _) = listener.accept().expect("Couldn't get client");
+    loop {
+        let mut socket = match listener.accept() {
+            Ok((s, _)) => s,
+            Err(_) => continue,
+        };
 
-    println!("New secure connection");
+        let body = "Hello Michael Scott!\n Here is our Flag: flag_XXXXXXXXXXXXXXXXXXXXXX_";
+        let data = format!(
+            "\
+            HTTP/1.1 200\r\n\
+            Server: VulnTLS/1.0\r\n\
+            Content-Type: text/html; charset=utf-8\r\n\
+            Content-Length: {}\r\n\
+            \r\n\
+            {}",
+            body.len(),
+            body
+        );
 
-    let mut buf: [u8; 4096] = [0; 4096];
-
-    let n = socket.tls_read(&mut buf).expect("Error reading from socket.");
-    println!(
-        "--- Request --- \n{}\n---------------",
-        String::from_utf8(buf[..n - 4].to_vec()).unwrap()
-    );
-    let body = "Hello Michael Scott!\n Here is our Flag: flag_XXXXXXXXXXXXXXXXXXXXXX_";
-    let data = format!(
-        "\
-HTTP/1.1 200\r\n\
-Server: VulnTLS/1.0\r\n\
-Content-Type: text/html; charset=utf-8\r\n\
-Content-Length: {}\r\n\
-\r\n\
-{}",
-        body.len(),
-        body
-    );
-
-    socket
-        .tls_write(data.as_bytes())
-        .expect("Error writing to socket.");
+        socket.tls_write(data.as_bytes());
+    }
 }

@@ -5,7 +5,7 @@ version = 3
 [[package]]
 name = "anothertls"
 version = "0.1.1"
-source = "git+https://github.com/otsmr/anothertls.git?branch=vulntls#0bfb7df60bd464189d723bfcaf09d12d02c6c35e"
+source = "git+https://github.com/otsmr/anothertls.git?branch=vulntls#1aeea34b458869a4a50fbd7f7cb149c081b782f6"
 dependencies = [
  "ibig",
 ]
@@ -41,6 +41,13 @@ checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 
 [[package]]
 name = "timing_issues"
+version = "0.1.0"
+dependencies = [
+ "anothertls",
+]
+
+[[package]]
+name = "triple_ec"
 version = "0.1.0"
 dependencies = [
  "anothertls",
