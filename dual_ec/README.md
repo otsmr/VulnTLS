@@ -1,4 +1,4 @@
-# Triple_EC
+# Dual_EC
 
 `todo!("write desc")`
 
@@ -6,7 +6,7 @@ The connection was created with the following commands.
 
 ```bash
 // Server
-$ cargo run --bin triple_ec
+$ cargo run --bin dual_ec
 // Client
 $ curl --insecure https://localhost:4000/
 ```

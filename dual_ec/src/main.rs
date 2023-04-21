@@ -10,9 +10,9 @@ use std::net::TcpListener;
 fn main() {
     anothertls::log::init();
     let config = ServerConfigBuilder::new()
-        .set_prng(anothertls::PRNG::TripleEc)
-        .add_cert_pem("./triple_ec/src/server.cert".to_string())
-        .add_privkey_pem("./triple_ec/src/server.key".to_string())
+        .set_prng(anothertls::PRNG::DualEC)
+        .add_cert_pem("./dual_ec/src/server.cert".to_string())
+        .add_privkey_pem("./dual_ec/src/server.key".to_string())
         .enable_keylog()
         .build()
         .unwrap();

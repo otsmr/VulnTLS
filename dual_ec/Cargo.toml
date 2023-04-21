@@ -1,5 +1,5 @@
 [package]
-name = "triple_ec"
+name = "dual_ec"
 version = "0.1.0"
 edition = "2021"
 

@@ -2,6 +2,6 @@
 members = [
   "psychic_signatures",
   "timing_issues",
-  "triple_ec",
+  "dual_ec",
 ]
 

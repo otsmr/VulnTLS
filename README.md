@@ -29,7 +29,7 @@ Run the [challenge](./timing_issues/README.md).
 cargo run --bin timing_issues
 ```
 
-## Triple_EC (EXTREME)
+## Dual_EC (EXTREME)
 
 Decrypt the captured connection!
-See [challenge](./triple_ec/README.md) for more.
+See [challenge](./dual_ec/README.md) for more.
