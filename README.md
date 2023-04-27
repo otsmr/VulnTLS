@@ -11,7 +11,9 @@ AnotherTLS repository.
 
 # Vulnerabilities
 
-The vulnerabilities are marked with there difficulty (EASY, HARD, EXTREME).
+The vulnerabilities are marked with there difficulty (EASY, HARD, EXTREME). The
+evaluation is of course subjective and designed for a bachelor student.
+
 
 ## Psychic signatures (EASY)
 
@@ -29,7 +31,7 @@ Run the [challenge](./timing_issues/README.md).
 cargo run --bin timing_issues
 ```
 
-## Dual_EC (EXTREME)
+## Dual_EC (HARD)
 
 Decrypt the captured connection!
 See [challenge](./dual_ec/README.md) for more.
