@@ -1,7 +1,9 @@
 # VulnTLS
 
-To better understand attacks and their impact on TLS, it is useful to exploit
-them on a real TLS server.
+VulnTLS is a series of CTF challenges. The series implements several
+vulnerabilities. Most of the vulnerabilities were already present in common TLS
+implementations. The series provides a basic understanding of TLS and typical
+implementation vulnerabilities, with a focus on cryptography.
 
 In this repository there are different setups to exploit the different
 vulnerabilities. For this it uses the vulnerable implementation, which has its
