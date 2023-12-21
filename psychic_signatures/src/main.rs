@@ -8,6 +8,9 @@ use anothertls::{ServerConfigBuilder, ServerConnection};
 use std::net::TcpListener;
 
 fn main() {
+
+    anothertls::log::init();
+
     let config = ServerConfigBuilder::new()
         .set_client_cert_custom_verify_fn(|cert| {
             let name = match cert.tbs_certificate.subject.get("commonName") {
